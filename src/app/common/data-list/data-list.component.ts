@@ -8,21 +8,23 @@ import { User } from 'src/app/model/user';
 })
 export class DataListComponent implements OnInit {
   @Input() dataList: User[] = [];
-  @Output() selectClick: EventEmitter<boolean> = new EventEmitter();
-  @Output() updateClick: EventEmitter<boolean> = new EventEmitter();
-  @Output() deleteClick: EventEmitter<boolean> = new EventEmitter();
+  @Output() selectClick: EventEmitter<User> = new EventEmitter();
+  @Output() updateClick: EventEmitter<User> = new EventEmitter();
+  @Output() deleteClick: EventEmitter<User> = new EventEmitter();
+  dataRow!: User;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  onSelectClick(): void {
-    this.selectClick.emit(true);
+  onSelectClick(dataRow: User): void {
+    this.selectClick.emit(dataRow);
   }
 
-  onUpdateClick(): void {
-    this.updateClick.emit(true);
+  onUpdateClick(dataRow: User): void {
+    this.updateClick.emit(dataRow);
   }
-  onDeleteClick(): void {
-    this.deleteClick.emit(true);
+  onDeleteClick(dataRow: User): void {
+    this.deleteClick.emit(dataRow);
   }
 }

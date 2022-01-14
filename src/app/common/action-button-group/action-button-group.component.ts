@@ -7,7 +7,6 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./action-button-group.component.scss'],
 })
 export class ActionButtonGroupComponent implements OnInit {
-  @Input() dataList: User[] = [];
   @Output() selectClick: EventEmitter<boolean> = new EventEmitter();
   @Output() updateClick: EventEmitter<boolean> = new EventEmitter();
   @Output() deleteClick: EventEmitter<boolean> = new EventEmitter();

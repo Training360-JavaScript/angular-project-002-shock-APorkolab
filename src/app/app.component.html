@@ -27,7 +27,7 @@
         Állítsd be az onChangePhrase($event) metódust az input elem
         keyup eseményére.
        -->
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" (keyup)="onChangePhrase($event)">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
@@ -35,8 +35,8 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <app-data-list (selectClick)="onUserClicked()" , (updateClick)="onUpdateClicked(currentUser)" ,
-        (deleteClick)="onDeleteClicked(currentUser)">
+      <app-data-list [dataList]="userData" (selectClick)="onUserClicked($event)" (updateClick)="onUpdateClicked($event)"
+        (deleteClick)="onDeleteClicked($event)">
       </app-data-list>
     </div>
     <div class="col-4">

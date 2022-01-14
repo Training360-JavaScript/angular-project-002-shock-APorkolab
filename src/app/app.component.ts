@@ -1,5 +1,5 @@
 import { UserService } from 'src/app/service/user.service';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from './model/user';
 import { Event } from '@angular/router';
 
@@ -9,18 +9,16 @@ import { Event } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  @Output()
-  event!: KeyboardEvent;
-  userService!: UserService;
-  dataList: User[] = this.userService.list;
-  currentUser!: User;
   title = 'The good Angular programmer';
-  phrase: any;
 
-  constructor() {}
+  userData!: User[];
+  currentUser: User = new User();
 
-  onUserClicked(): void {
-    this.currentUser.emit(true);
+  constructor(private userService: UserService) {
+    this.userData = this.userService.list;
+  }
+  onUserClicked(currentUser: User): void {
+    this.currentUser = currentUser;
   }
 
   onUpdateClicked(currentUser: User): void {
@@ -28,8 +26,5 @@ export class AppComponent {
   }
   onDeleteClicked(currentUser: User): void {
     this.userService.removeUser(currentUser);
-  }
-  onChangePhrase(event: KeyboardEvent): void {
-    this.phrase = this.phrase;
   }
 }

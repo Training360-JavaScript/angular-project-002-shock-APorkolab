@@ -7,15 +7,10 @@
     <span class="text-bold">active</span>
   </div>
 </div>
-<div class="row">
+<div class="row" *ngFor="let row of dataList">
   <div class="col-12 mt-1 data-list-row">
-    <app-data-row *ngFor="let row of dataList" , (selectClick)="onSelectClick()" , (updateClick)="onUpdateClick()" ,
-      (deleteClick)="onDeleteClick()">
-      <div>{{row.id}}</div>
-      <div>{{row.name}}</div>
-      <div>{{row.email}}</div>
-      <div>{{row.address}}</div>
-
+    <app-data-row [dataRow]="row" (selectClick)="onSelectClick($event)" (updateClick)="onUpdateClick($event)"
+      (deleteClick)="onDeleteClick($event)">
     </app-data-row>
   </div>
 </div>
