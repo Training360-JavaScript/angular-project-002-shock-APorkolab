@@ -1,3 +1,4 @@
+import { UserService } from './service/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -28,11 +29,8 @@ import { DataListComponent } from './common/data-list/data-list.component';
     DataRowComponent,
     DataListComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-  ],
+  imports: [BrowserModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

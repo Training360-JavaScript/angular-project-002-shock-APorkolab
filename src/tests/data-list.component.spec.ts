@@ -26,11 +26,8 @@ describe('DataListComponent', () => {
         DataCellComponent,
         DataRowComponent,
       ],
-      imports: [
-        FormsModule,
-      ]
-    })
-      .compileComponents();
+      imports: [FormsModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -118,10 +115,8 @@ describe('DataListComponent', () => {
     const dataInputs = getElements(fixture, 'app-data-row app-data-cell input');
     fixture.detectChanges();
 
-    fixture.whenStable().then( () => {
+    fixture.whenStable().then(() => {
       expect((dataInputs[0] as HTMLInputElement).value).toEqual('1');
     });
   });
-
-
 });
